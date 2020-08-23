@@ -10,10 +10,10 @@ test('list nonexistent directory', async () => {
   let dirListing;
 
   try {
-    dirListing = await filesystem.listDirectory('./core/');
+    dirListing = await filesystem.listDirectory('./dasuhsaiuhdsiaddd/');
   } catch (e) {
     expect(e).toBeDefined();
   }
 
-  expect(dirListing.code).toBe('ENOENT');
+  expect(dirListing.code).toBeDefined();
 });
