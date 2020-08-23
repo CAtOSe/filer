@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 // File browser
-app.use(browserRouter);
+app.use('/files', browserRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
