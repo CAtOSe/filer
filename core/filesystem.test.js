@@ -1,19 +1,46 @@
 const filesystem = require('./filesystem');
 
+// @test listDirectory
 test('list project directory', async () => {
   const dirListing = await filesystem.listDirectory('./');
   expect(dirListing).toBeDefined();
-  expect(dirListing).toContain('package.json'); // Do not remove package.json or this test will fail
+
+  expect(dirListing.length).toBeGreaterThan(0);
 });
 
+// @test listDirectory
 test('list nonexistent directory', async () => {
-  let dirListing;
+  const dirListing = await filesystem.listDirectory('./dasuhsaiuhdsiaddd/');
 
-  try {
-    dirListing = await filesystem.listDirectory('./dasuhsaiuhdsiaddd/');
-  } catch (e) {
-    expect(e).toBeDefined();
-  }
+  expect(dirListing).toBeUndefined();
+});
 
-  expect(dirListing.code).toBeDefined();
+// @test createObject
+test('create file object', async () => {
+  const testPath = 'index.js';
+  const fileObject = await filesystem.createObject(`./${testPath}`);
+
+  expect(fileObject).toBeDefined();
+  expect(fileObject.type).toBe('file');
+  expect(fileObject.basename).toBe(testPath);
+  expect(fileObject.path).toMatch(RegExp(testPath, 'g'));
+});
+
+// @test createObject
+test('create directory object', async () => {
+  const testPath = 'core';
+  const fileObject = await filesystem.createObject(`./${testPath}`);
+
+  expect(fileObject).toBeDefined();
+  expect(fileObject.type).toBe('dir');
+  expect(fileObject.basename).toBe(testPath);
+  expect(fileObject.path).toMatch(RegExp(testPath, 'g'));
+});
+
+// @test createObject
+test('create nonexistent object', async () => {
+  const testPath = 'dasuhsaiuhdsiaddd';
+  const fileObject = await filesystem.createObject(`./${testPath}`);
+
+  expect(fileObject).toBeUndefined();
 });
