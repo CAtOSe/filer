@@ -7,6 +7,8 @@ else objPath += '/' + object.basename;
     <div class="c-objectBox__icon">
       <% if (object.type == 'dir') { %>
         <span class="material-icons">folder</span>
+      <% } else if (object.type == '..') { %>
+        <span class="material-icons">arrow_back</span>
       <% } else { %>
         <span class="material-icons">description</span>
       <% } %>

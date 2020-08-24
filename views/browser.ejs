@@ -3,9 +3,15 @@
   <div class="c-browserWindow__topBar">
     <%- include('elements/pathfinder', { path:  path }) %>
     <h1 class="c-browserWindow__title">FILER</h1>
-    <a href="/upload/">Upload</a>
+    <a href="/upload/" class="c-browserWindow__upload"><span class="material-icons c-browserWindow__upload-icon">cloud_upload</span> Upload</a>
   </div>
   <div class="c-browserWindow__objectWindow">
+    <% if (!(path == '' || path == '/')) { %>
+      <%- include('elements/objectBox', { object: {
+        type: '..',
+        'basename': '..'
+      } }) %>
+    <% } %>
     <% listing.forEach(function (object) { %>
       <%- include('elements/objectBox', { object: object }) %>
     <% }); %>
