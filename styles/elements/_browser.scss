@@ -19,6 +19,7 @@
 }
 
 .c-browserWindow__upload {
+  cursor: pointer;
   padding: 8px 16px;
   text-decoration: none;
   color: $text;
@@ -29,7 +30,7 @@
     margin-right: 8px;
   }
 
-  &:hover {
+  &:hover, &:focus {
     background: rgba(255, 255, 255, 0.3);
   }
 }

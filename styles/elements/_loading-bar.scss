@@ -1,0 +1,44 @@
+.c-loading-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow-x: hidden;
+  border-radius: 5px;
+}
+
+.c-loading-bar.--success {
+  background: $green;
+}
+
+.c-loading-bar.--error {
+  background: $red;
+}
+
+.c-loading-bar__line {
+  position: absolute;
+  opacity: 0.4;
+  background: $blue-hover;
+  width: 150%;
+  height: 8px;
+}
+
+.c-loading-bar__subline {
+  position: absolute;
+  background: $blue;
+  height: 8px; 
+}
+.c-loading-bar__subline.--inc {
+  animation: a-loading-bar__increase 2s infinite;
+}
+.c-loading-bar__subline.--dec {
+  animation: a-loading-bar__decrease 2s 0.5s infinite;
+}
+
+@keyframes a-loading-bar__increase {
+ from { left: -5%; width: 5%; }
+ to { left: 130%; width: 100%;}
+}
+@keyframes a-loading-bar__decrease {
+ from { left: -80%; width: 80%; }
+ to { left: 110%; width: 10%;}
+}

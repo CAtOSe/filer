@@ -1,0 +1,99 @@
+.c-upload-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: $dialog-blackout;
+  // display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-upload-box__dialog {
+  padding: 28px 48px;
+  background: #222;
+}
+
+.c-upload-box__form {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.c-upload-box__label {
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.c-upload-box__label-dnd,
+.c-upload-box__label-dnd-icon,
+.c-upload-box__label-message {
+  display: none;
+}
+
+.c-upload-box__upload-button {
+  margin-top: 16px;
+  align-self: flex-end;
+}
+
+.c-upload-box__status > div {
+  padding: 4px;
+  display: none;
+}
+
+.c-upload-box__form.--drag-and-drop {
+  // Styling for drag and drop supported browsers
+  .c-upload-box__file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .c-upload-box__label {
+    padding: 64px;
+    margin: 0;
+    border: 2px dashed $grey-light;
+
+    @include animate(all, 200ms);
+
+    &:hover {
+      padding: 60px;
+      margin: 4px;
+    }
+  }
+
+  &.--is-draged .c-upload-box__label {
+      background: $blue-hover;
+      border-color: $blue;
+      padding: 56px;
+      margin: 8px;
+  }
+
+  .c-upload-box__label-dnd {
+    display: inline;
+  }
+
+  .c-upload-box__label-dnd-icon {
+    display: block;
+    text-align: center;
+    font-size: 64px;
+    margin-bottom: 16px;
+    color: $grey-light;
+  }
+
+  .c-upload-box__label-message {
+    margin-top: 8px;
+    display: block;
+    text-align: center;
+  }
+
+  .c-upload-box__upload-button {
+    display: none;
+  }
+}

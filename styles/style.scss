@@ -1,7 +1,10 @@
 @import 'variables';
+@import 'inputs';
 @import 'elements/browser';
-@import 'elements/objectBox';
+@import 'elements/object-box';
 @import 'elements/pathfinder';
+@import 'elements/upload';
+@import 'elements/loading-bar';
 
 body {
   margin: 0;

@@ -14,7 +14,9 @@
   text-decoration: none;
   border-radius: 3px;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
+  @include animate(background, 80ms);
+    
+  &:hover, &:focus {
+     background: rgba(255, 255, 255, 0.3);
   }
 }

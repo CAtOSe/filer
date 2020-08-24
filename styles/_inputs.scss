@@ -1,0 +1,21 @@
+button,
+input[type=submit] {
+  background: none;
+  color: $blue;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  @include animate(background);
+
+  &:hover {
+    background: $blue-hover;
+  }
+
+  &:focus {
+    background: $blue-hover;
+    border-color: $blue;
+  }
+}

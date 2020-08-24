@@ -1,7 +1,21 @@
-<div class="c-uploadBox">
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileUpload">
-    <input type="submit" value="Upload file">
-  </form>
+<div class="c-upload-box">
+  <div class="c-upload-box__dialog" id="c-upload-box__dialog">
+    <form action="/upload" method="post" enctype="multipart/form-data" class="c-upload-box__form" id="file-upload-form">
+      <label class="c-upload-box__label" for="file">
+        <span class="c-upload-box__label-dnd-icon material-icons">cloud_upload</span>
+        <span class="c-upload-box__label-dnd">Drag & drop files to upload or</span> click to choose a file
+        <span class="c-upload-box__label-message"></span>
+      </label>
+      <input type="file" class="c-upload-box__file" name="file" id="file" multiple>
+      <input type="submit" class="c-upload-box__upload-button" value="Upload">
+    </form>
+    <div class="c-upload-box__status">
+      <div class="c-upload-box__status__uploading">
+         <%- include('loading-bar.ejs') %>
+      </div>
+      <div class="c-upload-box__status__success"><div class="c-loading-bar --success"></div></div>
+      <div class="c-upload-box__status__error"><div class="c-loading-bar --error"></div></div>
+    </div>
+  </div>
 </div>
+<script src="/js/file-upload.js"></script>

@@ -23,13 +23,13 @@ router.get('/*', async (req, res) => {
     } else {
       // Object is a file, send it directly.
       res.sendFile(req.path, { root: rootPath, dotfiles: 'allow' }, (err) => {
-        // TODO: Add error handling
+        res.status(500).send(err);
       });
     }
   } else {
     // Object doesn't exist, send 404.
     // TODO: Make 404 page
-    res.send('404');
+    res.sendStatus(404);
   }
 });
 

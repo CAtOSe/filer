@@ -1,0 +1,42 @@
+.c-object-box {
+  a {
+    border-top: 1px solid $grey;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: $text;
+
+    @include animate(background, 80ms);
+
+    &:hover, &:focus {
+      background: #333;
+    }
+  }
+
+  &:first-child a {
+    border-top: none;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &:last-child a {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.c-object-box__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 1.3em;
+    color: $grey;
+  }
+}
+
+.c-object-box__filename {
+  margin-left: 16px;
+  text-align: center;
+  font-size: 1.1em;
+}

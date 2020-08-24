@@ -1,9 +1,20 @@
 // Primary colours
 $background: #222;
 $grey: #6e6e6e;
+$grey-light: #d0d0d0;
 $text: #fff;
 
 // Accent colours
 $red: #cd5d67;
 $blue: #489fb5;
 $green: #23ce6b;
+
+
+// Utility colours
+$dialog-blackout: rgba(0, 0, 0, 0.7);
+$blue-hover: rgba($color:$blue, $alpha:0.35);
+
+
+@mixin animate($propery, $duration: 100ms) {
+  transition: $duration $propery;
+}
