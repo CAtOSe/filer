@@ -20,5 +20,8 @@ else objPath += '/' + object.basename;
         <%= object.basename %>
       <% } %>
     </span>
+    <% if (object.type == 'file') { %>
+      <span class="c-object-box__size"><%= object.hSize %></span>
+    <% } %>
   </a>
 </div>

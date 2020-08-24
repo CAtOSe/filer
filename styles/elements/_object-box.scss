@@ -4,6 +4,7 @@
     padding: 8px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     text-decoration: none;
     color: $text;
 
@@ -24,19 +25,20 @@
   }
 }
 
-.c-object-box__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: 1.3em;
-    color: $grey;
-  }
+.c-object-box__icon span {
+  font-size: 1.3em;
+  color: $grey;
 }
 
 .c-object-box__filename {
   margin-left: 16px;
-  text-align: center;
   font-size: 1.1em;
+  flex: 1;
+}
+
+.c-object-box__size {
+  margin-right: 16px;
+  font-size: 1em;
+  font-family: monospace;
+  vertical-align: middle;
 }
