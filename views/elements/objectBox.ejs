@@ -1,12 +1,22 @@
+<% let objPath = path;
+if (objPath.substr(objPath.length - 1) == '/') objPath += object.basename;
+else objPath += '/' + object.basename;
+%>
 <div class="c-objectBox">
-  <span class="c-objectBox__icon">
-    <% if (object.type == 'dir') { %>
-      Folder
-    <% } else { %>
-      File
-    <% } %>
-  </span>
-  <span class="c-objectBox__filename">
-    <%= object.basename.substring(0, 32) %>
-  </span>
+  <a href="/files<%= objPath %>">
+    <div class="c-objectBox__icon">
+      <% if (object.type == 'dir') { %>
+        <span class="material-icons">folder</span>
+      <% } else { %>
+        <span class="material-icons">description</span>
+      <% } %>
+    </div>
+    <span class="c-objectBox__filename">
+      <% if (object.basename.length > 32) { %>
+        <%= object.basename.substring(0, 32) + '...' %>
+      <% } else { %>
+        <%= object.basename %>
+      <% } %>
+    </span>
+  </a>
 </div>

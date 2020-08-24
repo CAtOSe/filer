@@ -1,0 +1,34 @@
+.c-objectBox {
+  border-top: 1px solid $grey;
+  transition: 80ms background;
+
+  &:hover {
+    background: #333;
+  }
+
+  a {
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: $text;
+  }
+}
+
+.c-objectBox__icon {
+  // background: $green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 1.3em;
+    color: $grey;
+  }
+}
+
+.c-objectBox__filename {
+  margin-left: 16px;
+  text-align: center;
+  font-size: 1.1em;
+}

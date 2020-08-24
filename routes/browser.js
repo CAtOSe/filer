@@ -18,7 +18,7 @@ router.get('/*', async (req, res) => {
 
       res.render('browser', {
         listing: dirListing,
-        path: objectPath,
+        path: req.path,
       });
     } else {
       // Object is a file, send it directly.

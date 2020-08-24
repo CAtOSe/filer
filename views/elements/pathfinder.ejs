@@ -1,3 +1,17 @@
+<%
+  let combinedPath = '/files';
+  let parts = path.split('/');
+  parts[0] = '/';
+  if (parts[parts.length - 1] == '') parts.splice(parts.length - 1);
+%>
 <div class="c-pathfinder">
-  <%= path %>
+  <% parts.forEach((part, i) => {
+    if (part != '') {  
+      if (i != 0) {
+        combinedPath += '/' + part; %>
+        <span class="c-pathfinder__sep material-icons">navigate_next</span>
+     <% } %>
+      <a class="c-pathfinder__link" href="<%= combinedPath %>"><%= part %></a>
+    <% } %>
+  <% }) %>
 </div>

@@ -1,5 +1,12 @@
 @import 'variables';
+@import 'elements/browser';
+@import 'elements/objectBox';
+@import 'elements/pathfinder';
 
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  color: $text;
+  font-family: 'Raleway', sans-serif;
 }
