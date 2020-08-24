@@ -1,3 +1,13 @@
 <%- include('parts/header') %>
-<span>Path: </span><span><%= path %></span>
+<div class="c-browserWindow">
+  <div class="c-browserWindow__topBar">
+    <%- include('elements/pathfinder', { path:  path }) %>
+    <a href="/upload/">Upload</a>
+  </div>
+  <div class="c-browserWindow__objectWindow">
+    <% listing.forEach(function (object) { %>
+      <%- include('elements/objectBox', { object: object }) %>
+    <% }); %>
+  </div>
+</div>
 <%- include('parts/footer') %>

@@ -4,20 +4,31 @@ const filesystem = require('../core/filesystem');
 
 const router = express.Router();
 
+const rootPath = path.resolve(process.env.FILE_PATH);
+
 router.get('/*', async (req, res) => {
-  const objectPath = path.join(process.env.FILE_PATH, req.path);
+  const objectPath = path.join(rootPath, req.path);
   const object = await filesystem.createObject(objectPath);
 
-  console.log(objectPath);
-  console.log(object);
-
   if (object !== undefined) {
+    // Object exists.
     if (object.type === 'dir') {
-      res.render('browser', { path: objectPath });
+      // Object is a directory, prepare a listing
+      const dirListing = await filesystem.listDirectory(objectPath);
+
+      res.render('browser', {
+        listing: dirListing,
+        path: objectPath,
+      });
     } else {
-      res.send('file');
+      // Object is a file, send it directly.
+      res.sendFile(req.path, { root: rootPath, dotfiles: 'allow' }, (err) => {
+        // TODO: Add error handling
+      });
     }
   } else {
+    // Object doesn't exist, send 404.
+    // TODO: Make 404 page
     res.send('404');
   }
 });

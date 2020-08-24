@@ -1,0 +1,12 @@
+<div class="c-objectBox">
+  <span class="c-objectBox__icon">
+    <% if (object.type == 'dir') { %>
+      Folder
+    <% } else { %>
+      File
+    <% } %>
+  </span>
+  <span class="c-objectBox__filename">
+    <%= object.basename.substring(0, 32) %>
+  </span>
+</div>
