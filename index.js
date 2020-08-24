@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 // Homepage
 app.get('/', (req, res) => {
-  res.send('Filer works!');
+  res.render('home');
 });
 
 // File browser

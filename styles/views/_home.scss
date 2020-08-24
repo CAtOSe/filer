@@ -1,0 +1,103 @@
+.c-homepage {
+  // height: 100%;
+}
+
+.c-homepage__main-section {
+  padding: 64px 64px 32px 256px;
+
+  @media only screen and (max-width: 1100px) {
+    padding-left: 64px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.c-homepage__mini-header {
+  h2 {
+    margin: 0;
+    padding-bottom: 0.3em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: inline;
+    border-bottom: 2px solid $text;
+  }
+}
+
+.c-homepage__welcome {
+  margin-top: 72px;
+  font-weight: 900;
+  font-size: 2em;
+
+  h1 {
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+}
+
+.c-homepage__description {
+  max-width: 800px;
+  font-size: 1.5em;
+  letter-spacing: 0.03em;
+  margin-top: 48px;
+
+  p {
+    margin: 24px 0;
+  }
+}
+
+.c-homepage__button {
+  margin-right: 16px;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: $text;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+
+  @include animate(background, 120ms);
+}
+
+.c-homepage__button.--filled {
+  background: $blue;
+
+  &:hover, &:focus {
+    background: rgba($blue, 0.8);
+  }
+}
+
+.c-homepage__button.--outlined {
+  color: $blue;
+  border: 2px solid $blue;
+  padding: 10px 26px;
+
+  &:hover, &:focus {
+    background: $blue-hover;
+  }
+}
+
+.c-homepage__cta {
+  display: flex;
+  flex-wrap: wrap;
+
+  .c-homepage__button {
+    margin-top: 16px;
+  }
+}
+
+.c-homepage__author {
+  display: block;
+  margin-top: 72px;
+  color: $grey;
+
+  a {
+    text-decoration: none;
+    color: $blue;
+    border-bottom: 2px solid $blue;
+    padding-bottom: 2px;
+  }
+}
