@@ -97,7 +97,7 @@ if (isAdvancedUpload) {
 
 (function attachOpenDialogAction() {
   const uploadDialog = document.getElementsByClassName('c-upload-box')[0];
-  const uploadButton = document.getElementsByClassName('c-browserWindow__upload')[0];
+  const uploadButton = document.getElementsByClassName('c-browser-window__upload')[0];
 
   uploadButton.addEventListener('click', () => {
     // Open dialog

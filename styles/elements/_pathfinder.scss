@@ -1,9 +1,16 @@
 .c-pathfinder {
   display: flex;
+  overflow-x: auto;
 }
 
 .c-pathfinder__sep {
   padding: 4px 2px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 0;
+  }
 }
 
 .c-pathfinder__link {
@@ -18,5 +25,11 @@
     
   &:hover, &:focus {
      background: rgba(255, 255, 255, 0.3);
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 0.9em;
+    line-height: 18px;
+    padding: 0;
   }
 }

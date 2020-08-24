@@ -1,20 +1,22 @@
 <%- include('parts/header') %>
-<div class="c-browserWindow">
-  <div class="c-browserWindow__topBar">
+<div class="c-browser-window">
+  <div class="c-browser-window__top-bar">
     <%- include('elements/pathfinder', { path:  path }) %>
-    <h1 class="c-browserWindow__title">FILER</h1>
-    <a class="c-browserWindow__upload"><span class="material-icons c-browserWindow__upload-icon">cloud_upload</span> Upload</a>
+    <h1 class="c-browser-window__title">FILER</h1>
+    <a class="c-browser-window__upload"><span class="material-icons c-browser-window__upload-icon">cloud_upload</span> <span class="c-browser-window__upload-text">Upload</span></a>
   </div>
-  <div class="c-browserWindow__objectWindow">
-    <% if (!(path == '' || path == '/')) { %>
-      <%- include('elements/object-box', { object: {
-        type: '..',
-        'basename': '..'
-      } }) %>
-    <% } %>
-    <% listing.forEach(function (object) { %>
-      <%- include('elements/object-box', { object: object }) %>
-    <% }); %>
+  <div class="c-browser-window__object-window">
+    <div class="c-browser-window__object-grid">
+      <% if (!(path == '' || path == '/')) { %>
+        <%- include('elements/object-box', { object: {
+          type: '..',
+          'basename': '..'
+        } }) %>
+      <% } %>
+      <% listing.forEach(function (object) { %>
+        <%- include('elements/object-box', { object: object }) %>
+      <% }); %>
+      </div>
   </div>
 </div>
 <%- include('elements/upload') %>

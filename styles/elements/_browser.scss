@@ -1,31 +1,39 @@
-.c-browserWindow {
+.c-browser-window {
   width: 100%;
 }
 
-.c-browserWindow__topBar {
+.c-browser-window__top-bar {
   height: 64px;
   padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: $blue;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 24px;
+  }
 }
 
-.c-browserWindow__objectWindow {
+.c-browser-window__object-window {
   max-width: 1000px;
-  margin: 24px auto;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.c-browser-window__object-grid {
   border-radius: 8px;
   border: 1px solid $grey;
 }
 
-.c-browserWindow__upload {
+.c-browser-window__upload {
   cursor: pointer;
   padding: 8px 16px;
   text-decoration: none;
   color: $text;
   border-radius: 5px;
   
-  .c-browserWindow__upload-icon {
+  .c-browser-window__upload-icon {
     vertical-align: middle;
     margin-right: 8px;
   }
@@ -34,9 +42,18 @@
     background: rgba(255, 255, 255, 0.3);
   }
 }
+.c-browser-window__upload-text {
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
 
-.c-browserWindow__title {
+.c-browser-window__title {
   margin: 0;
   font-size: 1.7em;
   letter-spacing: 0.1em;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 }
