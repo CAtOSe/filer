@@ -47,6 +47,19 @@ module.exports.listDirectory = async (directoryPath) => {
         async (obj) => module.exports.createObject(path.join(directoryPath, obj)),
       ),
     );
+
+    // Sort directories first, then files
+    objectListing.sort((a, b) => {
+      if (a.type < b.type) return -1; // Works, because 'd' comes before 'f'
+      if (a.type > b.type) return 1;
+      if (a.type === b.type) {
+        // Same type sort, sort by name
+        if (a.basename.toLocaleLowerCase() < b.basename.toLocaleLowerCase()) return -1;
+        if (a.basename.toLocaleLowerCase() > b.basename.toLocaleLowerCase()) return 1;
+      }
+      return 0;
+    });
+
     return objectListing;
   } catch (e) {
     return undefined;
