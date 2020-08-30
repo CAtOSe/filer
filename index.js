@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const browserRouter = require('./routes/browser');
 const uploadRouter = require('./routes/upload');
+const apiRouter = require('./routes/api');
 
 // Create app with settings
 const app = express();
@@ -20,6 +21,9 @@ app.use('/files', browserRouter);
 
 // File upload
 app.use('/files', uploadRouter);
+
+// API
+app.use('/api', apiRouter);
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
