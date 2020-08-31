@@ -6,7 +6,6 @@ const filesize = require('filesize');
   File Object {
     type (string): ['dir' || 'file],
     basename (string): basename with extenstion (file.txt),
-    path (string): object path relative to process.env.PATH,
     size (number): *only if type == file* Size of the file in bytes
     hSize (string): *only if type == file* Human readable file size
   }
