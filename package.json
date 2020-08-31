@@ -25,7 +25,8 @@
     "ejs": "^3.1.5",
     "express": "^5.0.0-alpha.8",
     "express-fileupload": "^1.2.0",
-    "filesize": "^6.1.0"
+    "filesize": "^6.1.0",
+    "helmet": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^7.7.0",
