@@ -10,8 +10,13 @@ test('list project directory', async () => {
 
 // @test listDirectory
 test('list nonexistent directory', async () => {
-  const dirListing = await filesystem.listDirectory('./dasuhsaiuhdsiaddd/');
+  let dirListing;
 
+  try {
+    dirListing = await filesystem.listDirectory('./dasuhsaiuhdsiaddd/');
+  } catch (error) {
+    expect(error).toBeDefined();
+  }
   expect(dirListing).toBeUndefined();
 });
 
@@ -23,7 +28,6 @@ test('create file object', async () => {
   expect(fileObject).toBeDefined();
   expect(fileObject.type).toBe('file');
   expect(fileObject.basename).toBe(testPath);
-  expect(fileObject.path).toMatch(RegExp(testPath, 'g'));
 });
 
 // @test createObject
@@ -34,13 +38,18 @@ test('create directory object', async () => {
   expect(fileObject).toBeDefined();
   expect(fileObject.type).toBe('dir');
   expect(fileObject.basename).toBe(testPath);
-  expect(fileObject.path).toMatch(RegExp(testPath, 'g'));
 });
 
 // @test createObject
 test('create nonexistent object', async () => {
   const testPath = 'dasuhsaiuhdsiaddd';
-  const fileObject = await filesystem.createObject(`./${testPath}`);
+  let fileObject;
+
+  try {
+    fileObject = await filesystem.createObject(`./${testPath}`);
+  } catch (err) {
+    expect(err).toBeDefined();
+  }
 
   expect(fileObject).toBeUndefined();
 });
