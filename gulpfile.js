@@ -1,7 +1,5 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-
-sass.compiler = require('node-sass');
+const sass = require('gulp-sass')(require('node-sass'));
 
 function compileSCSS() {
   return gulp.src('./styles/**/*.scss')
